@@ -82,7 +82,8 @@ unsafe fn new_connection_callback(new_conn :net_tcp::TcpNewConnection, _killch: 
 					}					
 
 					let response: ~str = file_contents_str;
-					net_tcp::write(&sock, response.as_bytes_with_null_consume());
+					//net_tcp::write(&sock, response.as_bytes_with_null_consume());
+					net_tcp::write(&sock, file_contents.read_lines());
 				}
 				else{
 					let response: ~str = ~
